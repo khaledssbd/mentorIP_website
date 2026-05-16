@@ -54,31 +54,31 @@ export function ContactForm() {
   };
 
   return (
-    <Card className="lg:sticky lg:top-24 border border-slate-100 dark:border-white/5 bg-white dark:bg-slate-950 rounded-[3rem] p-6 shadow-2xl relative overflow-hidden group/form">
+    <Card className="lg:sticky lg:top-24 border border-border bg-card rounded-[3rem] p-6 shadow-2xl relative overflow-hidden group/form">
       <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary to-blue-600 opacity-50 transition-opacity group-hover/form:opacity-100" />
       
       <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
         <div className="space-y-1">
-          <h4 className="text-xl font-black text-slate-900 dark:text-white italic underline decoration-primary/20 underline-offset-4">Quick Inquiry</h4>
-          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Typical response: Under 2 hours</p>
+          <h4 className="text-xl font-black text-foreground italic underline decoration-primary/20 underline-offset-4">Quick Inquiry</h4>
+          <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Typical response: Under 2 hours</p>
         </div>
         
         <div className="space-y-3">
           <div className="space-y-1.5">
-            <label htmlFor="name" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 pl-1">Full Name *</label>
+            <label htmlFor="name" className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground pl-1">Full Name *</label>
             <Input 
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Your Name" 
-              className="rounded-2xl h-10 bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-white/5 focus-visible:ring-primary text-sm" 
+              className="rounded-2xl h-10 bg-muted border-border focus-visible:ring-primary text-sm" 
               required
             />
           </div>
           
           <div className="space-y-1.5">
-            <label htmlFor="email" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 pl-1">Email Address *</label>
+            <label htmlFor="email" className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground pl-1">Email Address *</label>
             <Input 
               id="email"
               name="email"
@@ -86,13 +86,13 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@company.com" 
-              className="rounded-2xl h-10 bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-white/5 focus-visible:ring-primary text-sm" 
+              className="rounded-2xl h-10 bg-muted border-border focus-visible:ring-primary text-sm" 
               required
             />
           </div>
           
           <div className="space-y-1.5">
-            <label htmlFor="phone" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 pl-1">Phone Number</label>
+            <label htmlFor="phone" className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground pl-1">Phone Number</label>
             <Input 
               id="phone"
               name="phone"
@@ -100,32 +100,32 @@ export function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+880 1234 567 890" 
-              className="rounded-2xl h-10 bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-white/5 focus-visible:ring-primary text-sm" 
+              className="rounded-2xl h-10 bg-muted border-border focus-visible:ring-primary text-sm" 
             />
           </div>
           
           <div className="space-y-1.5">
-            <label htmlFor="subject" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 pl-1">Subject *</label>
+            <label htmlFor="subject" className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground pl-1">Subject *</label>
             <Input 
               id="subject"
               name="subject"
               value={formData.subject}
               onChange={handleChange}
               placeholder="IP Consultation Request" 
-              className="rounded-2xl h-10 bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-white/5 focus-visible:ring-primary text-sm" 
+              className="rounded-2xl h-10 bg-muted border-border focus-visible:ring-primary text-sm" 
               required
             />
           </div>
           
           <div className="space-y-1.5">
-            <label htmlFor="message" className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 pl-1">Message *</label>
+            <label htmlFor="message" className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground pl-1">Message *</label>
             <Textarea 
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               placeholder="How can we assist you with your IP matters?" 
-              className="rounded-2xl bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-white/5 min-h-[120px] focus-visible:ring-primary p-3 text-sm" 
+              className="rounded-2xl bg-muted border-border min-h-[120px] focus-visible:ring-primary p-3 text-sm" 
               required
             />
           </div>
@@ -143,7 +143,7 @@ export function ContactForm() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-3 pt-2 text-slate-400">
+        <div className="flex items-center gap-3 pt-2 text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="w-3.5 h-3.5" />
             <span className="text-[9px] font-bold uppercase tracking-widest">Support: 24/7 Available</span>

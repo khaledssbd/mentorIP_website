@@ -11,12 +11,12 @@ export function JoinTeamCTA() {
   return (
     <>
       <section className="max-w-4xl mx-auto">
-        <div className="bg-slate-50 dark:bg-slate-950 p-12 md:p-16 rounded-[3rem] border border-slate-100 dark:border-white/5 text-center space-y-8 shadow-2xl relative overflow-hidden group/cta">
+        <div className="bg-muted p-12 md:p-16 rounded-[3rem] border border-border text-center space-y-8 shadow-2xl relative overflow-hidden group/cta">
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary via-blue-600 to-primary animate-linear-x opacity-50" />
-          <h4 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+          <h4 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight">
             Interested in joining our wing?
           </h4>
-          <p className="text-slate-600 dark:text-slate-400 font-medium italic text-lg">
+          <p className="text-muted-foreground font-medium italic text-lg">
             We are always looking for passionate legal professionals and IP specialists to expand our global reach.
           </p>
           <Button 

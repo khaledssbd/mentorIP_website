@@ -80,9 +80,9 @@ export function UpdatePhoto({ initialImage, name }: UpdatePhotoProps) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 rounded-full"
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-foreground/40 rounded-full"
           >
-            <Camera className="w-8 h-8 text-white" />
+            <Camera className="w-8 h-8 text-primary-foreground" />
           </button>
         )}
 
@@ -101,7 +101,7 @@ export function UpdatePhoto({ initialImage, name }: UpdatePhotoProps) {
             size="sm"
             onClick={handleSave}
             disabled={isUploading}
-            className="h-8 px-3 rounded-lg font-bold text-[10px] uppercase tracking-wider"
+            className="h-8 px-3 rounded-lg font-bold text-[10px] uppercase"
           >
             {isUploading ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin mr-1" />
@@ -115,7 +115,7 @@ export function UpdatePhoto({ initialImage, name }: UpdatePhotoProps) {
             variant="outline"
             onClick={handleCancel}
             disabled={isUploading}
-            className="h-8 px-3 rounded-lg font-bold text-[10px] uppercase tracking-wider"
+            className="h-8 px-3 rounded-lg font-bold text-[10px] uppercase"
           >
             <X className="w-3.5 h-3.5 mr-1" />
             Cancel

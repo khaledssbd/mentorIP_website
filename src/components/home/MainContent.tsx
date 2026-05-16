@@ -5,7 +5,7 @@ import { CategorySection } from "./CategorySections";
 import Link from "next/link";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { Clock, MoveRight } from "lucide-react";
+import { Calendar, Clock, MoveRight } from "lucide-react";
 import Image from "next/image";
 import { format } from "date-fns";
 import { NewsletterSection } from "./NewsletterSection";
@@ -29,9 +29,9 @@ export async function MainDashboardContent() {
         <div className="xl:col-span-2 space-y-">
           {heroPost ? (
             <Link href={`/category/${heroPost.category?.slug}/${heroPost.slug}`}>
-              <Card className="px-6 rounded-4xl group cursor-pointer">
+              <Card className="rounded-4xl group cursor-pointer pt-0">
                 {/* Visual Header */}
-                <div className="relative aspect-video w-full rounded-4xl overflow-hidden shadow-2xl shadow-blue-500/10">
+                <div className="relative aspect-video w-full rounded-4xl overflow-hidden shadow-2xl shadow-primary/10">
                   {heroPost.coverImage ? (
                     <>
                       <Image 
@@ -40,58 +40,58 @@ export async function MainDashboardContent() {
                         fill 
                         priority
                         sizes="(max-width: 1280px) 100vw, 66vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                        className="object-cover" 
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
                     </>
                   ) : (
                     <>
-                      <div className="absolute inset-0 bg-linear-to-br from-blue-700 via-blue-600 to-sky-500" />
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.4),transparent_50%)]" />
+                      <div className="absolute inset-0 bg-linear-to-br from-primary via-primary/80 to-primary/60" />
+                      <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at top right, var(--color-primary) / 0.4, transparent 50%)' }} />
                     </>
                   )}
                   
                   <div className="absolute top-10 left-10 opacity-10 rotate-12 pointer-events-none">
-                    <div className="w-32 h-32 border-16 border-white rounded-full flex items-center justify-center">
-                      <div className="w-12 h-12 bg-white rounded-sm" />
+                    <div className="w-32 h-32 border-16 border-foreground rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-foreground rounded-sm" />
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-12 text-center select-none">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground p-12 text-center select-none">
                     
-                    <Badge className="absolute bottom-8 right-8 bg-black/40 hover:bg-black/60 text-white backdrop-blur-xl border-white/10 px-3 py-1 text-[10px] font-bold">
-                      <Clock className="w-3 h-3 mr-1.5 opacity-70" /> {heroPost.readTime}
+                    <Badge className="absolute bottom-8 right-8 bg-muted/40 hover:bg-muted/60 text-primary-foreground backdrop-blur-xl border-foreground/10 px-3 py-1 text-[10px] font-bold">
+                      <Clock className="w-3 h-3 mr-1.5 opacity-70" /> {heroPost.readTime?.split(' ')[0]} min read
                     </Badge>
                   </div>
                 </div>
 
-                <CardContent className="px-0">
+                <CardContent>
                   <div className="flex items-center gap-3 mb-4">
-                    <h2 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight tracking-tight">
+                    <h2 className="text-lg md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-wider">
                       {heroPost.title}
                     </h2>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-2 font-medium">
+                  <p className="text-muted-foreground text-sm  mb-6 line-clamp-2 font-medium">
                     {heroPost.subtitle}
                   </p>
-                  <div className="flex items-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 gap-4">
-                    <span className="text-slate-500 dark:text-slate-300">By MENTORiP</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800" />
+                  <div className="flex items-center text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground gap-4">
+                    <span className="text-muted-foreground/80 dark:text-muted-foreground">By MENTORiP</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-border" />
                     <span>{format(new Date(heroPost.createdAt || "2026-01-20T10:00:00Z"), "MMM d, yyyy")}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-border" />
                     <span className="text-primary tracking-widest">{heroPost.category?.name}</span>
                   </div>
                 </CardContent>
               </Card>
             </Link>
           ) : (
-            <Card className="relative aspect-video w-full rounded-4xl overflow-hidden border-0 shadow-2xl shadow-blue-500/5 bg-slate-50 dark:bg-slate-900/50 flex flex-col items-center justify-center text-center p-12">
-               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05),transparent_70%)]" />
-               <Badge variant="outline" className="mb-6 uppercase tracking-[0.3em] font-black text-[10px] opacity-40">Coming Soon</Badge>
-               <h2 className="text-4xl font-black text-slate-200 dark:text-slate-800 uppercase tracking-tighter max-w-md">
+            <Card className="relative aspect-video w-full rounded-4xl overflow-hidden shadow-2xl shadow-primary/5 flex flex-col items-center justify-center text-center">
+               <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at center, var(--color-primary) / 0.05, transparent 70%)' }} />
+               <Badge variant="outline" className="mb-6 uppercase tracking-[0.3em] font-black text-xs opacity-40">Coming Soon</Badge>
+                <h2 className="text-4xl font-black text-muted-foreground uppercase tracking-tighter max-w-md">
                  New Featured Research is in Progress
                </h2>
-               <div className="mt-8 flex items-center gap-2 text-slate-300 dark:text-slate-700 font-bold uppercase tracking-widest text-[10px]">
+                <div className="mt-8 flex items-center gap-2 text-muted-foreground/30 font-bold uppercase tracking-widest text-xs">
                  <span>Follow our updates</span>
                  <MoveRight className="w-3 h-3" />
                </div>
@@ -101,46 +101,43 @@ export async function MainDashboardContent() {
           {/* Wide Featured Post */}
           {widePost ? (
             <Link href={`/category/${widePost.category?.slug}/${widePost.slug}`} className="block group mt-6">
-              <Card className="border-0 bg-slate-500/5 dark:bg-slate-400/5 hover:bg-slate-500/10 dark:hover:bg-slate-400/10 transition-all duration-500 rounded-4xl overflow-hidden">
+              <Card className="rounded-4xl overflow-hidden hover:bg-muted/50 transition-all duration-500">
                 <CardContent>
                   <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="w-full md:w-1/3 aspect-video relative rounded-2xl overflow-hidden shadow-lg bg-slate-200 dark:bg-slate-800">
+                    <div className="w-full md:w-1/3 aspect-video relative rounded-2xl overflow-hidden shadow-lg bg-muted">
                       {widePost.coverImage && (
                         <Image 
                           src={widePost.coverImage} 
                           alt={widePost.title} 
                           fill 
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                          className="object-cover" 
                         />
                       )}
-                      <Badge className="absolute top-3 left-3 bg-primary text-white border-0 text-[8px] font-black uppercase">
-                        Spotlight
-                      </Badge>
                     </div>
                     <div className="flex-1 space-y-4">
                       <div className="flex items-center gap-2">
-                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{widePost.category?.name}</span>
-                         <span className="w-1 h-1 rounded-full bg-slate-200 dark:bg-slate-800" />
-                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                            {format(new Date(widePost.createdAt || "2026-01-20T10:00:00Z"), "MMMM yyyy")}
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{widePost.category?.name}</span>
+                         <div className="w-px h-4 bg-muted-foreground/30" />
+                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                            {format(new Date(widePost.createdAt || "2026-01-20T10:00:00Z"), "MMMM dd, yyyy")}
                          </span>
                       </div>
-                      <h3 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">
+                       <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-wider">
                         {widePost.title}
                       </h3>
-                      <p className="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 leading-relaxed font-medium">
+                       <p className="text-muted-foreground text-sm line-clamp-2 font-medium">
                         {widePost.subtitle}
                       </p>
                       <div className="flex items-center gap-4 pt-2">
                         <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-                            <Image src="/next.svg" alt="M" width={10} height={10} className="w-auto h-auto opacity-50 dark:invert" />
+                           <div className="w-6 h-6 p-1 border rounded-full bg-muted flex items-center justify-center">
+                            <Image src="/favicon.ico" alt="M" width={10} height={10} className="w-auto h-auto opacity-50 dark:invert" />
                           </div>
-                          <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">MENTORIP</span>
+                           <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">MENTORIP</span>
                         </div>
-                        <Badge variant="outline" className="text-[8px] font-black border-slate-200 dark:border-slate-800 text-slate-400">
-                          {widePost.readTime} read
+                         <Badge variant="outline" className="text-[8px] font-black border-border text-muted-foreground">
+                          {widePost.readTime?.split(' ')[0]} min read
                         </Badge>
                       </div>
                     </div>
@@ -149,8 +146,8 @@ export async function MainDashboardContent() {
               </Card>
             </Link>
           ) : (
-             <div className="h-48 rounded-4xl border-2 border-dashed border-slate-100 dark:border-slate-900 flex items-center justify-center bg-slate-50/30 dark:bg-slate-900/10">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-300 dark:text-slate-700">Additional content spotlighting soon</p>
+              <div className="h-48 rounded-4xl border-2 border-dashed border-border flex items-center justify-center bg-muted/30">
+                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/40">Additional content spotlighting soon</p>
              </div>
           )}
         </div>
@@ -162,16 +159,17 @@ export async function MainDashboardContent() {
             if (post) {
               return (
                 <Link key={post.slug} href={`/category/${post.category?.slug}/${post.slug}`} className="block group">
-                  <Card className="relative h-full border-0 shadow-lg group-hover:shadow-2xl transition-all duration-500 rounded-3xl overflow-hidden bg-slate-500/5 dark:bg-slate-400/5">
+                   <Card className="relative h-full shadow-lg group-hover:shadow-2xl transition-all duration-500 rounded-3xl overflow-hidden">
                     <CardContent>
                       <div className="space-y-4">
                         <div className="flex gap-4 items-center">
-                          <div className="w-20 h-20 rounded-2xl shrink-0 relative overflow-hidden flex items-center justify-center border-2 border-white/50 dark:border-slate-800/50 shadow-sm transition-transform duration-500 group-hover:scale-105 bg-slate-200 dark:bg-slate-800">
+                           <div className="w-20 h-20 rounded-2xl shrink-0 relative overflow-hidden flex items-center justify-center border-2 border-background shadow-sm bg-muted">
                              {post.coverImage ? (
                                <Image 
                                  src={post.coverImage} 
                                  alt={post.title} 
-                                 fill 
+                                 fill
+                                 priority
                                  sizes="80px"
                                  className="object-cover" 
                                />
@@ -181,34 +179,31 @@ export async function MainDashboardContent() {
                                </div>
                              )}
                           </div>
-                          <div className="space-y-1">
-                            <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest border-slate-200 dark:border-slate-800 text-slate-400">
-                              Latest Post
-                            </Badge>
+                        </div>
+
+                        <div className="space-y-3">
+                           <h3 className="text-sm font-semibold text-foreground tracking-wider group-hover:text-primary transition-colors line-clamp-2">
+                            {post.title}
+                          </h3>
+                          
+                           <p className="text-sm text-muted-foreground">
+                            {post.subtitle}
+                          </p>
+                            <div className="space-y-1">
                             <p className="text-[9px] font-black text-primary/80 uppercase tracking-widest">
                               {post.category?.name}
                             </p>
                           </div>
-                        </div>
-
-                        <div className="space-y-3">
-                          <h3 className="text-sm font-black tracking-tight text-slate-800 dark:text-slate-100 leading-[1.2] group-hover:text-primary transition-colors line-clamp-2">
-                            {post.title}
-                          </h3>
                           
-                          <p className="text-sm">
-                            {post.subtitle}
-                          </p>
-                          
-                          <div className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between mt-auto">
+                           <div className="pt-4 border-t border-border flex items-center justify-between mt-auto">
                             <div className="flex items-center gap-2">
-                               <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:animate-pulse" />
-                               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                 {format(new Date(post.createdAt || "2026-01-20T10:00:00Z"), "MMM d")}
+                               <Calendar className="w-3 h-3 text-muted-foreground" />
+                               <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
+                                 {format(new Date(post.createdAt || "2026-01-20T10:00:00Z"), "MMM dd, yyyy")}
                                </p>
                             </div>
-                            <Badge variant="secondary" className="text-[9px] font-black px-2 py-0.5 border-0 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                              {post.readTime} read
+                             <Badge variant="secondary" className="text-[9px] font-black px-2 py-0.5 border-0 rounded-lg bg-muted text-muted-foreground">
+                               {post.readTime?.split(' ')[0]} min read
                             </Badge>
                           </div>
                         </div>
@@ -221,11 +216,11 @@ export async function MainDashboardContent() {
 
             // Side Coming Soon placeholder
             return (
-              <Card key={`side-soon-${index}`} className="relative shadow-none bg-slate-50/50 dark:bg-slate-900/20 rounded-3xl overflow-hidden border-2 border-dashed border-slate-100 dark:border-slate-800/50 p-6 flex flex-col justify-center min-h-40">
+               <Card key={`side-soon-${index}`} className="relative shadow-none rounded-3xl overflow-hidden border-2 border-dashed border-border flex flex-col justify-center min-h-40">
                 <div className="space-y-2 opacity-50">
-                  <div className="w-12 h-1 bg-slate-200 dark:bg-slate-800 rounded-full" />
-                  <p className="text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.2em]">Update Loading...</p>
-                  <div className="h-10 w-full bg-slate-100 dark:bg-slate-900 rounded-lg mt-4" />
+                   <div className="w-12 h-1 bg-border rounded-full" />
+                  <p className="text-[9px] font-black text-muted-foreground/30 uppercase tracking-[0.2em]">Update Loading...</p>
+                  <div className="h-10 w-full bg-muted rounded-lg mt-4" />
                 </div>
               </Card>
             );

@@ -2,6 +2,13 @@
 import React from 'react'
 import { getAllGallery } from '@/services/gallery'
 import GalleryClient from '@/components/gallery/GalleryClient'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gallery | MentorIP - Visualizing Our Journey",
+  description: "Browse through MentorIP's gallery showcasing our events, global offices, and team moments.",
+  keywords: ["MentorIP Gallery", "Law Firm Events", "IP Law Bangladesh Images"],
+};
 
 async function GalleryPage() {
   const response = await getAllGallery()

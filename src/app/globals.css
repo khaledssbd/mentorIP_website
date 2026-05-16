@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -77,9 +77,9 @@
   --sidebar-border: oklch(0.93 0.04 40.57);
   --sidebar-ring: oklch(0.74 0.16 34.57);
 
-  --font-sans: Montserrat, sans-serif;
-  --font-serif: Merriweather, serif;
-  --font-mono: Ubuntu Mono, monospace;
+  --font-sans: var(--font-poppins);
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --radius: 0.625rem;
   
@@ -101,7 +101,7 @@
   --card-foreground: oklch(0.94 0.01 48.70);
   --popover: oklch(0.32 0.02 339.89);
   --popover-foreground: oklch(0.94 0.01 48.70);
-  --primary: oklch(0.74 0.16 34.57);
+  --primary: oklch(65.557% 0.14421 34.919);
   --primary-foreground: oklch(1.00 0 0);
   --secondary: oklch(0.36 0.02 342.33);
   --secondary-foreground: oklch(0.94 0.01 48.70);
@@ -145,6 +145,15 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom Scrollbar Styles */

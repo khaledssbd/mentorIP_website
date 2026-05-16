@@ -14,8 +14,8 @@ export async function LatestNews() {
 
   return (
     <section className="space-y-6 py-8">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
-        <h2 className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+      <div className="flex items-center justify-between border-b border-border pb-4">
+        <h2 className="text-xl font-extrabold tracking-tight text-foreground">
           Latest <span className="text-primary">News</span>
         </h2>
       </div>

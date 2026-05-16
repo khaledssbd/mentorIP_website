@@ -51,7 +51,7 @@ export function NewsletterBox() {
         <Button 
           type="submit" 
           disabled={loading}
-          className="h-10 px-4 font-bold bg-pink-500 hover:bg-pink-600 text-white"
+          className="h-10 px-4 font-bold bg-pink-500 hover:bg-pink-600 text-primary-foreground"
         >
           <Send className={loading ? "animate-pulse" : ""} />
         </Button>

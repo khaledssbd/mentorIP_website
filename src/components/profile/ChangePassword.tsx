@@ -67,7 +67,7 @@ export function ChangePassword() {
   return (
     <Card className="rounded-xl border shadow-sm">
       <CardHeader className="pb-3 border-b">
-        <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+        <CardTitle className="text-sm font-bold uppercase text-muted-foreground flex items-center gap-2">
           <KeyRound className="w-4 h-4 text-primary" />
           Update Password
         </CardTitle>
@@ -83,7 +83,7 @@ export function ChangePassword() {
               name="oldPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-tight text-slate-500">Current Password</FormLabel>
+                  <FormLabel className="text-xs font-bold uppercase text-muted-foreground">Current Password</FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
@@ -95,7 +95,7 @@ export function ChangePassword() {
                       <button
                         type="button"
                         onClick={() => setShowOld(!showOld)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {showOld ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                       </button>
@@ -111,7 +111,7 @@ export function ChangePassword() {
               name="newPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-tight text-slate-500">New Password</FormLabel>
+                  <FormLabel className="text-xs font-bold uppercase text-muted-foreground">New Password</FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
@@ -123,7 +123,7 @@ export function ChangePassword() {
                       <button
                         type="button"
                         onClick={() => setShowNew(!showNew)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {showNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                       </button>
@@ -139,7 +139,7 @@ export function ChangePassword() {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold uppercase tracking-tight text-slate-500">Confirm New Password</FormLabel>
+                  <FormLabel className="text-xs font-bold uppercase text-muted-foreground">Confirm New Password</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
@@ -155,7 +155,7 @@ export function ChangePassword() {
 
             <Button 
               type="submit" 
-              className="w-full rounded-lg h-10 font-bold uppercase tracking-widest text-[10px] bg-primary hover:bg-primary/90"
+              className="w-full rounded-lg h-10 font-bold uppercase text-[10px] bg-primary hover:bg-primary/90"
               disabled={isLoading}
             >
               {isLoading ? (

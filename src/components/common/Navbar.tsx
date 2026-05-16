@@ -91,7 +91,7 @@ export function Navbar() {
               <ScrollArea className="flex-1">
                 <div className="p-4 space-y-6">
                   <nav className="flex flex-col space-y-1">
-                    <p className="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                    <p className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                       Menu
                     </p>
                     {navLinks.map((link) => {
@@ -106,12 +106,12 @@ export function Navbar() {
                           className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-md transition-all ${
                             isActive
                               ? "bg-primary/5 text-primary"
-                              : "text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-900"
+                              : "text-foreground hover:text-primary dark:hover:text-primary hover:bg-muted"
                           }`}
                         >
                           <link.icon
                             className={`w-4 h-4 ${
-                              isActive ? "text-primary" : ""
+                              isActive ? "text-primary" : "text-muted-foreground"
                             }`}
                           />
                           {link.name}
@@ -124,7 +124,7 @@ export function Navbar() {
                         className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-md transition-all ${
                           pathname === "/profile"
                             ? "bg-primary/5 text-primary"
-                            : "text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-900"
+                            : "text-foreground hover:text-primary dark:hover:text-primary hover:bg-muted"
                         }`}
                       >
                         <Avatar className="w-5 h-5">
@@ -171,7 +171,7 @@ export function Navbar() {
                 className={`text-sm font-medium flex items-center gap-1.5 px-3 py-2 rounded-md transition-all relative ${
                   isActive
                     ? "bg-primary/5 text-primary"
-                    : "text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-900"
+                    : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:bg-muted"
                 }`}
               >
                 <link.icon
@@ -190,7 +190,7 @@ export function Navbar() {
             <Input
               type="search"
               placeholder="Search..."
-              className="h-9 w-full rounded-full bg-slate-100 dark:bg-slate-800 border-none pl-9 focus-visible:ring-1"
+              className="h-9 w-full rounded-full bg-muted border-none pl-9 focus-visible:ring-1"
             />
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
           </div>
@@ -211,16 +211,16 @@ export function Navbar() {
                 <>
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-black tracking-tight">
+                      <p className="text-sm font-semibold tracking-wider">
                         {currentUser?.name}
                       </p>
-                      <p className="text-[10px] font-bold text-muted-foreground tracking-widest leading-none">
+                      <p className="text-xs text-muted-foreground tracking-widest">
                         {currentUser?.email}
                       </p>
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild className="cursor-pointer font-bold text-sm">
+                  <DropdownMenuItem asChild className="cursor-pointer uppercase text-xs tracking-wider">
                     <Link href="/profile" className="flex items-center gap-2 w-full">
                       <User className="text-primary w-4 h-4" />
                       <span>View Profile</span>
@@ -231,7 +231,7 @@ export function Navbar() {
                 <>
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-black italic tracking-tight">
+                      <p className="text-sm font-semibold">
                         Welcome to MentorIP
                       </p>
                       <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">
@@ -242,7 +242,7 @@ export function Navbar() {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     asChild
-                    className="cursor-pointer font-bold text-sm"
+                    className="cursor-pointer uppercase text-xs tracking-wider"
                   >
                     <Link href="/auth/login">
                       <LogOut className="rotate-180 text-primary" />
@@ -251,7 +251,7 @@ export function Navbar() {
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     asChild
-                    className="cursor-pointer font-bold text-sm"
+                    className="cursor-pointer uppercase text-xs tracking-wider"
                   >
                     <Link href="/auth/register">
                       <Users className="text-primary" />
@@ -269,7 +269,7 @@ export function Navbar() {
                   ) : (
                     <Sun className="h-4 w-4 text-amber-500" />
                   )}
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
                     Dark Mode
                   </span>
                 </div>

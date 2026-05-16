@@ -31,23 +31,23 @@ export default async function ProfilePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 space-y-8 animate-in fade-in duration-500">
       {/* Simple Header Section */}
-      <div className="flex flex-col md:flex-row items-center gap-6 p-8 bg-slate-50 dark:bg-slate-900 border rounded-2xl shadow-sm">
+      <div className="flex flex-col md:flex-row items-center gap-6 p-8 bg-muted border rounded-2xl shadow-sm">
         <UpdatePhoto initialImage={userData.image} name={userData.name} />
         
         <div className="flex-1 text-center md:text-left space-y-2">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-3">
-            <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h1 className="text-2xl md:text-4xl font-bold text-foreground">
               {userData.name}
             </h1>
             <Badge variant="secondary" className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] bg-primary/10 text-primary border-primary/20">
               {userData.role}
             </Badge>
           </div>
-          <p className="text-slate-500 dark:text-slate-400 font-medium">
+          <p className="text-muted-foreground font-medium">
             Professional Member
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-4">
-            <Badge variant="outline" className="text-slate-500 font-medium">
+            <Badge variant="outline" className="text-muted-foreground font-medium">
               ID: {userData._id.slice(-6).toUpperCase()}
             </Badge>
           </div>
@@ -55,11 +55,11 @@ export default async function ProfilePage() {
       </div>
 
       <Tabs defaultValue="info" className="w-full space-y-6">
-        <TabsList className="bg-slate-100 dark:bg-slate-900 border p-1 rounded-xl h-11 w-full md:w-auto">
-          <TabsTrigger value="info" className="rounded-lg px-6 font-bold text-xs uppercase tracking-widest data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm">
+        <TabsList className="bg-muted border p-1 rounded-xl h-11 w-full md:w-auto">
+          <TabsTrigger value="info" className="rounded-lg px-6 font-bold text-xs uppercase tracking-widest data-[state=active]:bg-background data-[state=active]:shadow-sm">
             Overview
           </TabsTrigger>
-          <TabsTrigger value="security" className="rounded-lg px-6 font-bold text-xs uppercase tracking-widest data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm">
+          <TabsTrigger value="security" className="rounded-lg px-6 font-bold text-xs uppercase tracking-widest data-[state=active]:bg-background data-[state=active]:shadow-sm">
             Security
           </TabsTrigger>
         </TabsList>
@@ -73,30 +73,30 @@ export default async function ProfilePage() {
               {/* Contact Info Readonly */}
               <Card className="rounded-xl border shadow-sm">
                 <CardHeader className="pb-3 border-b">
-                  <CardTitle className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  <CardTitle className="text-xs font-bold uppercase text-muted-foreground">
                     Account Status
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-5 space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">Public Email</p>
-                      <p className="text-sm font-bold truncate text-slate-700 dark:text-slate-300">
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase">Public Email</p>
+                      <p className="text-sm font-bold truncate text-foreground">
                         {userData.email}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center text-amber-600">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">Status</p>
-                      <p className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase italic">
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase">Status</p>
+                      <p className="text-sm font-bold text-foreground uppercase">
                         Verified {userData.role}
                       </p>
                     </div>
@@ -107,18 +107,18 @@ export default async function ProfilePage() {
               {/* Security / Member Info */}
               <Card className="rounded-xl border shadow-sm">
                 <CardHeader className="pb-3 border-b">
-                  <CardTitle className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  <CardTitle className="text-xs font-bold uppercase text-muted-foreground">
                     Member Details
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-5 space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
                       <Calendar className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">Joined Date</p>
-                      <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase">Joined Date</p>
+                      <p className="text-sm font-bold text-foreground">
                         {userData.createdAt ? format(new Date(userData.createdAt), "MMMM yyyy") : "January 2026"}
                       </p>
                     </div>
@@ -133,7 +133,7 @@ export default async function ProfilePage() {
                       variant="destructive" 
                       size="sm"
                       type="submit"
-                      className="w-full font-bold gap-2 rounded-lg text-[10px] uppercase tracking-wider"
+                      className="w-full font-bold gap-2 rounded-lg text-[10px] uppercase"
                     >
                       <LogOut className="w-3.5 h-3.5" /> Secure Logout
                     </Button>

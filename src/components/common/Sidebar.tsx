@@ -35,7 +35,7 @@ export function Sidebar() {
 
   const sidebarCategories = useMemo(() => {
     return [
-      { name: "All Posts", iconName: "LayoutDashboard", slug: "" },
+      { name: "All Poast", iconName: "LayoutDashboard", slug: "" },
       ...categories.map((cat) => ({
         name: cat.name,
         iconName: cat.iconName,
@@ -47,7 +47,7 @@ export function Sidebar() {
   return (
     <aside className="w-full">
       <div className="px-4 mb-4">
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Categories</h3>
+        <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Categories</h3>
       </div>
       <div className="flex flex-col space-y-1 mb-6">
         {isLoading ? (
@@ -65,9 +65,9 @@ export function Sidebar() {
               <Link 
                 key={i} 
                 href={href} 
-                className={`text-sm py-2 px-4 rounded-md transition-all group flex items-center justify-between border-l-4 ${
+                className={`text-sm py-2.5 px-4 rounded-xl transition-all group flex items-center justify-between border-l-4 font-medium tracking-wider ${
                   isActive
-                    ? "bg-primary/5 font-semibold text-primary border-primary" 
+                    ? "bg-primary/10 text-primary border-primary shadow-sm" 
                     : "text-muted-foreground hover:bg-primary/5 hover:text-primary border-transparent hover:border-primary"
                 }`}
               >
@@ -91,7 +91,7 @@ export function Sidebar() {
       
       <Separator className="my-4 opacity-50" />
       {/* Footer Info */}
-      <div className="px-4 text-[10px] text-slate-400 space-y-1">
+      <div className="px-4 text-[10px] text-muted-foreground space-y-1">
          <p className="font-bold">MENTOR IP APP v1.0</p>
          <p>&copy; MENTOR IP 2025</p>
       </div>
